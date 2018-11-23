@@ -1,4 +1,4 @@
-export default class Sheet {
+export default class SpreadSheet {
   file: GoogleAppsScript.Spreadsheet.Spreadsheet
 
   constructor (name: string) {

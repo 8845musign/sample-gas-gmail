@@ -1,4 +1,4 @@
-import Sheet from './Sheet'
+import SpreadSheet from './SpreadSheet'
 
 interface Result {
   start?: string
@@ -6,10 +6,10 @@ interface Result {
 }
 
 export default class ResultRecord {
-  sheet: Sheet
+  spreadSheet: SpreadSheet
 
-  constructor (sheet: Sheet) {
-    this.sheet = sheet
+  constructor (spreadSheet: SpreadSheet) {
+    this.spreadSheet = spreadSheet
   }
 
   load (): Result {
