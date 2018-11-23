@@ -5,11 +5,13 @@ interface Result {
   end?: string
 }
 
+const reusltSheetName = '結果'
+
 export default class ResultRecord {
-  spreadSheet: SpreadSheet
+  sheet: GoogleAppsScript.Spreadsheet.Sheet
 
   constructor (spreadSheet: SpreadSheet) {
-    this.spreadSheet = spreadSheet
+    this.sheet = spreadSheet.getSheet(reusltSheetName)
   }
 
   load (): Result {
