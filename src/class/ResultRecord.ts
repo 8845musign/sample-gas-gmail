@@ -6,6 +6,8 @@ interface Result {
 }
 
 const reusltSheetName = '結果'
+const startCell = 'B1'
+const endCell = 'B2'
 
 export default class ResultRecord {
   sheet: GoogleAppsScript.Spreadsheet.Sheet
@@ -16,8 +18,14 @@ export default class ResultRecord {
 
   load (): Result {
     return {
-      start: null,
-      end: null
+      start: this.sheet
+        .getRange(startCell)
+        .getValue()
+        .toString(),
+      end: this.sheet
+        .getRange(endCell)
+        .getValue()
+        .toString()
     }
   }
 
