@@ -15,6 +15,7 @@
     "gas:login": "clasp login",
     "gas:logout": "clasp logout",
     "gas:push": "clasp push",
+    "gas:push:watch": "clasp push --watch",
     "gas:pull": "clasp pull",
     "lint:ts": "tslint -c tslint.json 'src/**/*.ts'",
     "lint:ts:fix": "tslint -c tslint.json --fix 'src/**/*.ts'"
