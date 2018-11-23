@@ -5,6 +5,18 @@
   "author": "8845musign <8845musign@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@google/clasp": "^1.6.3"
+    "@google/clasp": "^1.6.3",
+    "@types/google-apps-script": "^0.0.32",
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^8.0.1"
+  },
+  "scripts": {
+    "gas:create": "clasp create --rootDir ./src",
+    "gas:login": "clasp login",
+    "gas:logout": "clasp logout",
+    "gas:push": "clasp push",
+    "gas:pull": "clasp pull",
+    "lint:ts": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint:ts:fix": "tslint -c tslint.json --fix 'src/**/*.ts'"
   }
 }
