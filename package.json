@@ -1,0 +1,10 @@
+{
+  "name": "sample-gas-gmail",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "8845musign <8845musign@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@google/clasp": "^1.6.3"
+  }
+}
