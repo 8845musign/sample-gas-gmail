@@ -1,9 +1,5 @@
 import SpreadSheet from './SpreadSheet'
-
-export interface Result {
-  start?: string
-  end?: string
-}
+import { SearchCondition } from '../interface/SearchCondition'
 
 const reusltSheetName = '結果'
 const startCell = 'B1'
@@ -16,7 +12,7 @@ export default class ResultRecord {
     this.sheet = spreadSheet.getSheet(reusltSheetName)
   }
 
-  load (): Result {
+  load (): SearchCondition {
     return {
       start: this.sheet
         .getRange(startCell)
