@@ -1,19 +1,19 @@
 import { ProcessLog } from './ProcessLogSheet'
 
 export default class SearchCondition {
-  start: string
-  end: string
+  start: Date
+  end: Date
 
-  constructor (start?: string, end?: string) {
+  constructor (start?: Date, end?: Date) {
     this.start = start
     this.end = end
   }
 
-  public setStart (start: string): void {
+  public setStart (start: Date): void {
     this.start = start
   }
 
-  public setEnd (end: string): void {
+  public setEnd (end: Date): void {
     this.end = end
   }
 
@@ -22,13 +22,13 @@ export default class SearchCondition {
 
     if (!log.start) {
       // この場合処理実行されない
-      start = new Date().toDateString()
+      start = new Date()
     } else if (!log.end) {
-      start = log.start
+      start = new Date(log.start)
     } else {
-      start = log.end
+      start = new Date(log.end)
     }
 
-    return new SearchCondition(start, new Date().toDateString())
+    return new SearchCondition(start, new Date())
   }
 }
