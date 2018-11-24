@@ -1,5 +1,4 @@
 import SpreadSheet from './SpreadSheet'
-import SearchCondition from '../interface/SearchCondition'
 
 const reusltSheetName = '結果'
 const startCell = 'B1'
