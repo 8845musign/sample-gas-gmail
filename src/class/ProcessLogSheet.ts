@@ -1,18 +1,23 @@
 import SpreadSheet from './SpreadSheet'
-import { SearchCondition } from '../interface/SearchCondition'
+import SearchCondition from '../interface/SearchCondition'
 
 const reusltSheetName = '結果'
 const startCell = 'B1'
 const endCell = 'B2'
 
-export default class ResultRecord {
+export interface ProcessLog {
+  start: string
+  end: string
+}
+
+export default class ProcessLogSheet {
   sheet: GoogleAppsScript.Spreadsheet.Sheet
 
   constructor (spreadSheet: SpreadSheet) {
     this.sheet = spreadSheet.getSheet(reusltSheetName)
   }
 
-  load (): SearchCondition {
+  load (): ProcessLog {
     return {
       start: this.sheet
         .getRange(startCell)

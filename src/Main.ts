@@ -1,15 +1,15 @@
 import SpreadSheet from './class/SpreadSheet'
-import ResultRecord from './class/ResultRecord'
+import ProcessLogSheet from './class/ProcessLogSheet'
 import { configConst } from './config/const'
 
 function exec () {
   const spreadSheet = new SpreadSheet(`${configConst.FILE_PREFIX}-sheet`)
-  const resultRecord = new ResultRecord(spreadSheet)
+  const processLogSheet = new ProcessLogSheet(spreadSheet)
 
-  const result = resultRecord.load()
+  const log = processLogSheet.load()
   // 前回結果を読み込み
-  Logger.log(`前回開始: ${result.start}`)
-  Logger.log(`前回終了: ${result.end}`)
+  Logger.log(`前回開始: ${log.start}`)
+  Logger.log(`前回終了: ${log.end}`)
 
   // 検索条件を作成
   Logger.log('crate search term')
