@@ -20,7 +20,7 @@ export default class ProcessLogSheet {
     this.endRange = this.sheet.getRange(this.endCell)
   }
 
-  load (): ProcessLog {
+  read (): ProcessLog {
     const startCell = this.startRange.getValue()
     const startDate = new Date(startCell.toString())
 

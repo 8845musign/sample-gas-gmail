@@ -8,7 +8,7 @@ function exec () {
   const processLogSheet = new ProcessLogSheet(spreadSheet)
 
   // 前回結果を読み込み
-  const log = processLogSheet.load()
+  const log = processLogSheet.read()
   Logger.log(`前回開始: ${log.start}`)
   Logger.log(`前回終了: ${log.end}`)
 
