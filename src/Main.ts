@@ -1,18 +1,22 @@
 import SpreadSheet from './class/SpreadSheet'
 import ProcessLogSheet from './class/ProcessLogSheet'
+import SearchCondition from './class/SearchCondition'
 import { configConst } from './config/const'
 
 function exec () {
   const spreadSheet = new SpreadSheet(`${configConst.FILE_PREFIX}-sheet`)
   const processLogSheet = new ProcessLogSheet(spreadSheet)
 
-  const log = processLogSheet.load()
   // 前回結果を読み込み
+  const log = processLogSheet.load()
   Logger.log(`前回開始: ${log.start}`)
   Logger.log(`前回終了: ${log.end}`)
 
   // 検索条件を作成
-  Logger.log('crate search term')
+  const searchCondition = SearchCondition.createFromLog(log)
+  Logger.log(
+    `crate search condition: ${searchCondition.start} - ${searchCondition.end}`
+  )
 
   // 検索
   Logger.log('serach gmail')
