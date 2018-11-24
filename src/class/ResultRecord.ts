@@ -1,6 +1,6 @@
 import SpreadSheet from './SpreadSheet'
 
-interface Result {
+export interface Result {
   start?: string
   end?: string
 }
