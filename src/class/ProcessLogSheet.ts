@@ -11,16 +11,20 @@ export default class ProcessLogSheet {
   sheet: GoogleAppsScript.Spreadsheet.Sheet
   startCell = 'B1'
   endCell = 'B2'
+  startRange: GoogleAppsScript.Spreadsheet.Range
+  endRange: GoogleAppsScript.Spreadsheet.Range
 
   constructor (spreadSheet: SpreadSheet) {
     this.sheet = spreadSheet.getSheet(reusltSheetName)
+    this.startRange = this.sheet.getRange(this.startCell)
+    this.endRange = this.sheet.getRange(this.endCell)
   }
 
   load (): ProcessLog {
-    const startCell = this.sheet.getRange(this.startCell).getValue()
+    const startCell = this.startRange.getValue()
     const startDate = new Date(startCell.toString())
 
-    const endCell = this.sheet.getRange(this.endCell).getValue()
+    const endCell = this.endRange.getValue()
     const endDate = new Date(endCell.toString())
 
     return {
@@ -30,15 +34,15 @@ export default class ProcessLogSheet {
   }
 
   recordStart (start: Date): void {
-    this.sheet.getRange(this.startCell).setValue(start)
+    this.startRange.setValue(start)
   }
 
   recordEnd (end: Date): void {
-    this.sheet.getRange(this.endCell).setValue(end)
+    this.endRange.setValue(end)
   }
 
   clear (): void {
-    this.sheet.getRange(this.startCell).clear()
-    this.sheet.getRange(this.endCell).clear()
+    this.startRange.clear()
+    this.endRange.clear()
   }
 }
