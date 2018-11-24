@@ -18,6 +18,9 @@ function exec () {
     `crate search condition: ${searchCondition.start} - ${searchCondition.end}`
   )
 
+  processLogSheet.clear()
+  processLogSheet.recordStart(searchCondition.start)
+
   // 検索
   Logger.log('serach gmail')
 
@@ -28,7 +31,8 @@ function exec () {
   Logger.log('post data')
 
   // 処理結果を記録
-  Logger.log('write result')
+  // ここまでに異常終了したら次回実行範囲に失敗分が含まれる
+  processLogSheet.recordEnd(searchCondition.end)
 }
 
 function searchMail () {
