@@ -29,16 +29,12 @@ export default class ProcessLogSheet {
     }
   }
 
-  recordStart (start: string): boolean {
-    Logger.log(`start: ${start}`)
-
-    return true
+  recordStart (start: string): void {
+    this.sheet.getRange(startCell).setValue(start)
   }
 
-  recordEnd (end: string): boolean {
-    Logger.log(`end: ${end}`)
-
-    return true
+  recordEnd (end: string): void {
+    this.sheet.getRange(endCell).setValue(end)
   }
 
   clear (): void {
