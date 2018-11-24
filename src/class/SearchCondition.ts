@@ -1,3 +1,5 @@
+import { ProcessLog } from './ProcessLogSheet'
+
 export default class SearchCondition {
   start: string
   end: string
@@ -15,17 +17,13 @@ export default class SearchCondition {
     this.end = end
   }
 
-  /**
-   * 前回の実行結果から新しい検索条件を作成する
-   * @param prevConditionRecord
-   */
-  public static createFromPrevCond (prevConditionRecord: SearchCondition) {
+  public static createFromLog (log: ProcessLog) {
     let start
 
-    if (!prevConditionRecord.end) {
-      start = prevConditionRecord.start
+    if (!log.end) {
+      start = log.start
     } else {
-      start = prevConditionRecord.end
+      start = log.end
     }
 
     return new SearchCondition(start, new Date().toDateString())
