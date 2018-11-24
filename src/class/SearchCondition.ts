@@ -9,15 +9,15 @@ export default class SearchCondition {
     this.end = end
   }
 
-  public setStart (start: string) {
+  public setStart (start: string): void {
     this.start = start
   }
 
-  public setEnd (end: string) {
+  public setEnd (end: string): void {
     this.end = end
   }
 
-  public static createFromLog (log: ProcessLog) {
+  public static createFromLog (log: ProcessLog): SearchCondition {
     let start
 
     if (!log.start) {
