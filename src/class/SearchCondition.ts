@@ -20,7 +20,10 @@ export default class SearchCondition {
   public static createFromLog (log: ProcessLog) {
     let start
 
-    if (!log.end) {
+    if (!log.start) {
+      // この場合処理実行されない
+      start = new Date().toDateString()
+    } else if (!log.end) {
       start = log.start
     } else {
       start = log.end
