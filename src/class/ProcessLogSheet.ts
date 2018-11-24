@@ -40,4 +40,9 @@ export default class ProcessLogSheet {
 
     return true
   }
+
+  clear (): void {
+    this.sheet.getRange(startCell).clear()
+    this.sheet.getRange(endCell).clear()
+  }
 }
